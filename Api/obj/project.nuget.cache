@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Yipzg331FDA=",
+  "success": true,
+  "projectFilePath": "/home/jordan/Documents/projects/personal/CookBook/Api/Api.csproj",
+  "expectedPackageFiles": [
+    "/home/jordan/.nuget/packages/microsoft.aspnetcore.openapi/10.0.8/microsoft.aspnetcore.openapi.10.0.8.nupkg.sha512",
+    "/home/jordan/.nuget/packages/microsoft.openapi/2.0.0/microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
