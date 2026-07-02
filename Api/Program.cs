@@ -45,7 +45,7 @@ public class Program
 
 
         //Registers all user defined services 
-        RegisterService(builder.Services);
+        RegisterServices(builder.Services);
 
         if(builder.Environment.IsProduction() || builder.Environment.IsStaging())
         {
@@ -112,9 +112,9 @@ public class Program
 
 
 
-    protected static void RegisterService(IServiceCollection services)
+    protected static void RegisterServices(IServiceCollection services)
     {
-
+        services.AddSingleton(TimeProvider.System);
     }
 
 }
