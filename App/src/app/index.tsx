@@ -8,6 +8,14 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { WebBadge } from '@/components/web-badge';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+import React, { useEffect } from 'react';
+
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import * as DocumentPicker from 'expo-document-picker';
+import * as FileSystem from 'expo-file-system';
+import * as IntentLauncher from 'expo-intent-launcher';
+
+
 
 function getDevMenuHint() {
   if (Platform.OS === 'web') {
@@ -28,17 +36,28 @@ function getDevMenuHint() {
   );
 }
 
-export default function Index(){
-
+export default function Index() {
+   const insets = useSafeAreaInsets();
   return (
-    <View className="flex-1 justify-center flex-row border-2 border-red-500" >
+    
+    <View className="flex-1 justify-center flex-row border-2 border-red-500" style={{ marginTop: insets.top }}>
       <Text className="text-lime-500">My Text</Text>
-
     </View>
+  );
+}
 
-  )
+
+
+async function pickAndInstallApk() {
+
+    // call package installer
+    await IntentLauncher.startActivityAsync('android.intent.action.VIEW', {
+      type: 'application/vnd.android.package-archive',
+      flags: 1, // FLAG_GRANT_READ_URI_PERMISSION
+    });
 
 }
+
 
 export function HomeScreen() {
   return (
